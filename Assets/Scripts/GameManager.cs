@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text scoreTXT;
     public TMP_Text endScoreText;
     public TMP_Text highScoreText;
-    public TMP_Text newHighScore;
+    public GameObject newHighScore;
     [Space]
     public GameObject gameOverPanel;
     [Space]
@@ -53,7 +53,6 @@ public class GameManager : MonoBehaviour
         nextPrefabX = /*startingPlatform.transform.position.x + (spriteWidth / 2) + 1*/20;
         nextPlatformY = startingPlatform.transform.localPosition.y + Random.Range(-platformHeighDiff, platformHeighDiff);
         scoreTXT.text = score.ToString();
-        
     }
 
     private void Update()
@@ -132,8 +131,6 @@ public class GameManager : MonoBehaviour
     public void StartGameState()
     {
         Debug.Log("START GAME?!");
-        if(Application.platform == RuntimePlatform.Android ||
-            Application.platform == RuntimePlatform.IPhonePlayer) { startGameInstructions.text = "Tap to start"; }
 
         GameStarted= true;
         player.gameObject.SetActive(true); 
