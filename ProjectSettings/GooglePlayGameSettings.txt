@@ -1,0 +1,11 @@
+lastUpgrade=01101
+proj.pluginVersion=0.11.01
+proj.AppId=463237429338
+and.BundleId=com.StanEdward.WatchYourStep
+proj.classDir=Assets
+proj.ConstantsClassName=GPGSIds
+and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0d%0a%3c%21--Google+Play+game+services+IDs.+Save+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.--%3e%0d%0a%3cresources%3e%0d%0a++%3c%21--app_id--%3e%0d%0a++%3cstring+name%3d%22app_id%22+translatable%3d%22false%22%3e463237429338%3c%2fstring%3e%0d%0a++%3c%21--package_name--%3e%0d%0a++%3cstring+name%3d%22package_name%22+translatable%3d%22false%22%3ecom.StanEdward.WatchYourStep%3c%2fstring%3e%0d%0a++%3c%21--achievement+Oops%2c+wrong+step%21--%3e%0d%0a++%3cstring+name%3d%22achievement_oops_wrong_step%22+translatable%3d%22false%22%3eCgkI2vDo2L0NEAIQAw%3c%2fstring%3e%0d%0a++%3c%21--achievement+10+points+already%3f--%3e%0d%0a++%3cstring+name%3d%22achievement_10_points_already%22+translatable%3d%22false%22%3eCgkI2vDo2L0NEAIQBA%3c%2fstring%3e%0d%0a++%3c%21--achievement+You+are+getting+better+and+better%21--%3e%0d%0a++%3cstring+name%3d%22achievement_you_are_getting_better_and_better%22+translatable%3d%22false%22%3eCgkI2vDo2L0NEAIQBQ%3c%2fstring%3e%0d%0a++%3c%21--achievement+Gotta+go+fast%21--%3e%0d%0a++%3cstring+name%3d%22achievement_gotta_go_fast%22+translatable%3d%22false%22%3eCgkI2vDo2L0NEAIQBg%3c%2fstring%3e%0d%0a++%3c%21--achievement+You+are+kidding%21+Are+you+actually+that+good%3f%21--%3e%0d%0a++%3cstring+name%3d%22achievement_you_are_kidding_are_you_actually_that_good%22+translatable%3d%22false%22%3eCgkI2vDo2L0NEAIQBw%3c%2fstring%3e%0d%0a++%3c%21--leaderboard+Score--%3e%0d%0a++%3cstring+name%3d%22leaderboard_score%22+translatable%3d%22false%22%3eCgkI2vDo2L0NEAIQAA%3c%2fstring%3e%0d%0a%3c%2fresources%3e
+and.ClientId=463237429338-dfenbbfsfjdufb61hbd118notuar99ra.apps.googleusercontent.com
+android.SetupDone=true
+App.NearbdServiceId=com.StanEdward.WatchYourStep
+android.NearbySetupDone=true

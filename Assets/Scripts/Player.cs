@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
 
+
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -74,7 +75,7 @@ public class Player : MonoBehaviour
 
         
 
-        if (Input.touchCount > 0 || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetMouseButtonDown(0))
+        if (Input.touchCount > 0 || Input.GetMouseButtonDown(0))
         {
             manager.PlaySoundEffect(0);
             rb.velocity = Vector2.up * jumpPower;

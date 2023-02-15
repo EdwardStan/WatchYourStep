@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: dc56959fc2661284e900ca9e16418888
+=======
+guid: 28dc314a271982f84bce39c140774128
+>>>>>>> parent of a9d123e (Revert "Ads + leaderboard + Achievements")
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
