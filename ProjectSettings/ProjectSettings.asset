@@ -136,6 +136,7 @@ PlayerSettings:
     Others: 1
   bundleVersion: 2.8
   preloadedAssets:
+  - {fileID: 11400000, guid: b3185f31e4973c0458911e0d85138601, type: 2}
   - {fileID: 8480137508658409244, guid: 4c681c93564c53547bb5267570757de7, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -245,10 +246,10 @@ PlayerSettings:
   templateDefaultScene: Assets/Scenes/SampleScene.unity
   useCustomMainManifest: 0
   useCustomLauncherManifest: 0
-  useCustomMainGradleTemplate: 0
+  useCustomMainGradleTemplate: 1
   useCustomLauncherGradleManifest: 0
-  useCustomBaseGradleTemplate: 0
-  useCustomGradlePropertiesTemplate: 0
+  useCustomBaseGradleTemplate: 1
+  useCustomGradlePropertiesTemplate: 1
   useCustomProguardFile: 0
   AndroidTargetArchitectures: 3
   AndroidTargetDevices: 0
