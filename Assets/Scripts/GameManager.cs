@@ -6,9 +6,6 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.UIElements;
-using UnityEngine.SocialPlatforms;
-using GooglePlayGames;
-using GooglePlayGames.BasicApi;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,11 +14,9 @@ public class GameManager : MonoBehaviour
     [Space]
     public GameObject platformObject;
     public GameObject startingPlatform;
-    public GameObject lastTouchedPlatform;
     [Space]
     public Player player;
     public GameObject playerPlaceholder;
-    public Transform spawnPoint;
     [Space]
     public float randomYMin = -5f;
     public float randomYMax = 5f;
@@ -51,12 +46,6 @@ public class GameManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip[] audioClips; // 0- Jump, 1- land, 2- Die, 3- click, 4- Special Die :)
 
-    [Space]
-    [Header("Socials")]
-    public AchievementManager achievementM;
-    public AdsInitializer adManager;
-
-
     private void Start()
     {
         SpriteRenderer sRenderer = startingPlatform.GetComponent<SpriteRenderer>();
@@ -78,12 +67,6 @@ public class GameManager : MonoBehaviour
     {
         score += points;
         scoreTXT.text = score.ToString();
-
-
-        if(score >= 10) { achievementM.GrantAchievement(GPGSIds.achievement_10_points_already); }
-        else if (score >= 25) { achievementM.GrantAchievement(GPGSIds.achievement_you_are_getting_better_and_better); }
-        else if(score >= 50) { achievementM.GrantAchievement(GPGSIds.achievement_gotta_go_fast); }
-        else if(score >= 100) { achievementM.GrantAchievement(GPGSIds.achievement_you_are_kidding_are_you_actually_that_good); }
     }
 
     public void SummonPlatform()
@@ -102,35 +85,16 @@ public class GameManager : MonoBehaviour
 
     public void TriggerGameOverEvent()
     {
-        PlayerPrefs.SetInt("Deaths", PlayerPrefs.HasKey("Deaths") ? PlayerPrefs.GetInt("Deaths") + 1 : 0 + 1);
-        ShowAdd();
-
         gameOverPanel.SetActive(true);
         endScoreText.text = "Score = " + score.ToString();
 
         if (score > (PlayerPrefs.HasKey("HighScore") ? PlayerPrefs.GetInt("HighScore") : 0))
         {
-            Social.ReportScore(score, GPGSIds.leaderboard_score, LeaderboardUpdatestatus);
             newHighScore.gameObject.SetActive(true);
             PlayerPrefs.SetInt("HighScore", score);
         }
 
         highScoreText.text = "Highscore = " + PlayerPrefs.GetInt("HighScore").ToString();
-    }
-
-    private void ShowAdd()
-    {
-        if(((PlayerPrefs.HasKey("Deaths") ? PlayerPrefs.GetInt("Deaths") : 0) % 3) == 0)
-        {
-            adManager.LoadInterstitialAD();
-        }
-        else {Debug.Log("Deaths " + PlayerPrefs.GetInt("Deaths").ToString()); }
-    }
-
-    private void LeaderboardUpdatestatus(bool success)
-    {
-        if (success) { Debug.Log("UPDATED LEADERBOARD"); }
-        else { Debug.Log("Unable to update Leaderboard"); }
     }
 
     //UI 
@@ -153,11 +117,10 @@ public class GameManager : MonoBehaviour
     {
         switch (gameStateIndex)
         {
-            case 0: //start game
+            case 0:
                 StartGameState();
                 break;
-            case 1: //game over state
-                achievementM.GrantAchievement(GPGSIds.achievement_oops_wrong_step);
+            case 1:
                 PlaySoundEffect(4);
                 Invoke("TriggerGameOverEvent",1.5f);
                 break;
@@ -181,39 +144,27 @@ public class GameManager : MonoBehaviour
         Invoke("SummonPlatform", 4f);
     }
 
-
-
     public void PlaySoundEffect(int soundEffectIndex)
     {
         switch(soundEffectIndex) 
         {
             case 0:
-                if(audioSource.isPlaying) { audioSource.Stop(); }
                 audioSource.PlayOneShot(audioClips[0]);
                 break;
             case 1:
-                if (audioSource.isPlaying) { audioSource.Stop(); }
                 audioSource.PlayOneShot(audioClips[1]);
                 break;
             case 2:
-                if (audioSource.isPlaying) { audioSource.Stop(); }
                 audioSource.PlayOneShot(audioClips[2]);
                 break;
             case 3:
-                if (audioSource.isPlaying) { audioSource.Stop(); }
                 audioSource.PlayOneShot(audioClips[3]);
                 break;
             case 4:
-                if (audioSource.isPlaying) { audioSource.Stop(); }
                 audioSource.PlayOneShot(audioClips[4]);
                 break;
 
         }
-    }
-
-    public void ReviveReward()
-    {
-        Debug.Log("You will revive :) ");
     }
 
 }
